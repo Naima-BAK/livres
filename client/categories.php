@@ -27,7 +27,6 @@
 
         <div class="section-title">
           <h2>Catégories</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
         </div>
 
         <div class="row">

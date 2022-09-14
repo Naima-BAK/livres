@@ -1,13 +1,12 @@
 
 <?php
- session_start();
  require ("../functions/functions.php");
 if(!isset($_SESSION['name_admin'])){
 	
 	header("location:../client/login.php");
 }
 
-$contact = getAllContact();
+$contacts = getAllContact();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,9 +38,44 @@ $contact = getAllContact();
 			
 
             
-        
+        <div style="" class="section-title">
+          <h2>Contact</h2>
+</div>
+<style>
+                                  .section-title {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  .section-title h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  .section-title h2::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+  }
+  .section-title h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #71dd37;
+    bottom: 0;
+    left: calc(50% - 20px);
+  }
+                            </style>
             <div style="overflow-y:scroll ! important; height:400px;" class="list-group">
-            <?php foreach($contact as $contact){?>
+            <?php foreach($contacts as $contact){?>
                 <a href="#" class="list-group-item">
                         
                     <div class="row g-0 align-items-center">

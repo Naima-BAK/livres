@@ -263,6 +263,7 @@
                           placeholder=" Entrez le nom de la catégorie"
                           id="nom"
                           name="nom"
+                          required
                         />
                       </div>
 
@@ -283,6 +284,7 @@
                           
                           id="description"
                           name="description"
+                          required
                         />
                       </div>
 
@@ -290,7 +292,7 @@
                       <br>
                       
                       <div  class="input-group">
-                        <input  type="file" class="form-control" id="image" name="imageCat" />
+                        <input  type="file" class="form-control" id="image" name="imageCat" required />
                         <label style="background-color: #e8fadf;color:#71dd37;" class="input-group-text" for="image">Télecharger</label>
                       </div>
                                  

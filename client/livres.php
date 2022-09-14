@@ -52,7 +52,7 @@ if(!empty($_POST)){
 
         <div class="section-title">
           <h2>Livres</h2>
-          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit</p>
+          <p>Derrière chaque livre se cache une idée, et derrière chaque idée se cache un pas en avant.</p>
         </div>
 
         <div class="row">

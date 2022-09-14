@@ -43,10 +43,7 @@ if(isset($_POST['edit_pic'])){
                       <li class="nav-item">
                          <a style="background-color:#ce1212;" class="nav-link active" href="profile.php"><i class="bx bx-user me-1"></i> Profile</a>
                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="messages.php">
-                           <i class="bx bx-bell me-1"></i> Message</a>
-                       </li>
+                       
                         <li class="nav-item">
                               <a class="nav-link" href="groupes.php"
                              ><i class="bx bx-link-alt me-1"></i> Groupes</a
@@ -58,38 +55,32 @@ if(isset($_POST['edit_pic'])){
                             >
                         </li>
                    </ul>
-                   <div style="background-color: white;border:none;width:1200px;margin-left:76px"  class="card mb-4">
+                   <!--  -->
+<div style="background-color: white;border:none;width:1200px;margin-left:76px"  class="card mb-4">
   <h5 style="padding-top:20px;padding-left:20px;margin-bottom: 0;margin-right:1000px;background-color: transparent; border-bottom: 0 solid #d9dee3;"  class="card-header">
     Details de profile 
-   
   </h5>
   <hr>
-         
-  <!-- Account -->
-  <div style="" class="card-body">
-    <div style="height:200px;" class="d-flex align-items-start align-items-sm-center gap-4">
-      <img width="50" height="50" class="d-block rounded" src="../admin/static/img/imgUsers/<?php echo $_SESSION['image'];?>"  width="100">
-     <!-- <h4><?php //echo $_SESSION['name'];?> <?php //echo $_SESSION['prenom'];?></h4> -->
-     
-    
-        <div style="margin-left:600px;" class="text-center">
-          <form action="profile.php" method="POST">
-             <button name="edit_pic" style=" background: var(--color-primary); border: 0; padding: 12px 40px;color: #fff;transition: 0.4s;border-radius: 50px;"  type="submit">
+  <!-- image -->
+  <div style="display:flex;margin-left:10px;">
+    <div>
+        <img width="200" height="200" class="d-block rounded" src="../admin/static/img/imgUsers/<?php echo $_SESSION['image'];?>"  width="100">
+    </div>
+
+    <div style="margin-left:30px;margin-top:50px">
+     <form action="profile.php" method="POST">
+              <input type="file" name="image" id=""><br><br>
+             <button name="edit_pic" style=" background: red; border: 0;color: white;border-radius: 50px;"  type="submit">
                 Modifier l'image
               </button>
-          </form>
-           <br>
-           <br>
-           <a href="editProfile.php?id=<?php echo $_SESSION['id'];?>">
-             <button style=" background: var(--color-primary); border: 0; padding: 12px 40px;color: #fff;transition: 0.4s;border-radius: 50px;" name="btn-add" type="submit">
-                Modifier le compte
-              </button>
-           </a>
-       </div>
-      
+      </form>
+    </div>
 
-    </div> <p><?php echo $_SESSION['about'];?></p>
-  </div>
+  </div>  <br> 
+  <!--  --><p style="margin-left:10px;"><?php echo $_SESSION['about'];?></p>
+  
+  <!-- Account -->
+  
 
 
   <hr style="height:2px;" class="my-0" />
@@ -153,6 +144,7 @@ if(isset($_POST['edit_pic'])){
                                             </div>
                                         </div>
 
+
                             </div>
                             
                         </div>
@@ -161,6 +153,14 @@ if(isset($_POST['edit_pic'])){
             
                         
          </form>
+         <!-- ------Bouton modifier -->
+                               
+         <a style="margin-left:500px;" href="editProfile.php?id=<?php echo $_SESSION['id'];?>">
+             <button style="padding-top:5px;padding-bottom:5px;padding-right:5px;padding-left:5px; ; background:red; border: 0;color: white;border-radius: 50px;" name="btn-add" type="submit">
+                Modifier le compte
+              </button>
+           </a> 
+<!-- ------------------------ -->
     </div>
     </div>
     </div>

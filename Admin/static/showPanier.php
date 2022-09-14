@@ -1,13 +1,11 @@
 
 <?php
-  
-  session_start();
-  
+   require ("../functions/functions.php"); 
  if(!isset($_SESSION['name_admin'])){
      
      header("location:../client/login.php");
  }
-   require ("../functions/functions.php");
+   
    $commandes = getAllCommandes2();
    $panier = getPanierById($_GET['id']);
 

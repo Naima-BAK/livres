@@ -1,198 +1,346 @@
 
-<?php 
-
-require ("../admin/functions/functions.php");
-if(!isset($_SESSION['name'])){
-     
-  header("location:login.php");
-}
-$user = getUtilisateurById();
-if(isset($_POST['edit_pic'])){
-  editImgUser();
-}
- ?>
-
-<!DOCTYPE html>
 
 
-<html>
-  <head>
-    <link rel="stylesheet" href="assets/css/profile.css">
-    <link rel="stylesheet" href="assets/css/desc.css">
-     <?php 
-        include "includes/head.html" ?>
-  </head>
 
-  <body style="background-color: #f5f5f9;overflow-x: hidden;">
-     <!-- ======= Header ======= -->
-   <?php 
-  include "includes/header.php" ?>
-  <!-- End Header -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-   
-
-    <div style="margin-top:150px" class="section-title">
-          <h2>Paramètres du compte</h2>
-          <p>Profile</p>
-       
-    </div>
-      
-    <div class="row">
-        <div class="col-md-12">
-                   <ul style="margin-left:76px;"  class="nav nav-pills flex-column flex-md-row mb-3">
-                      <li class="nav-item">
-                         <a style="background-color:#ce1212;" class="nav-link active" href="profile.php"><i class="bx bx-user me-1"></i> Profile</a>
-                       </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="messages.php">
-                           <i class="bx bx-bell me-1"></i> Message</a>
-                       </li>
-                        <li class="nav-item">
-                              <a class="nav-link" href="groupes.php"
-                             ><i class="bx bx-link-alt me-1"></i> Groupes</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                              <a class="nav-link" href="etat_livraison.php"
-                             ><i class="bx bx-link-alt me-1"></i> Suivi de livraison</a
-                            >
-                        </li>
-                   </ul>
-                   <div style="background-color: white;border:none;width:1200px;margin-left:76px"  class="card mb-4">
-  <h5 style="padding-top:20px;padding-left:20px;margin-bottom: 0;margin-right:1000px;background-color: transparent; border-bottom: 0 solid #d9dee3;"  class="card-header">
-    Details de profile 
-   
-  </h5>
-  <hr>
-
-  <div style="display:flex;width:1200px;" class="card-body">
-        <div style="width:500px;">
-          <img  style="width:200px;margin-left:300px;" class="d-block rounded" src="../admin/static/img/imgUsers/<?php echo $_SESSION['image'];?>"  width="100">
-        </div>
-        <div style="width:700px;margin-right:300px;" class="text-center"><br><br>
-        <form action="test2.php" method="POST">
-        <input style="width:200px;height:40px" type="file" name="image" id=""><br>
-          <!-- <button name="edit_pic" style=" background: var(--color-primary); border: 0; padding: 12px 40px;color: #fff;transition: 0.4s;border-radius: 50px;"  type="submit">
-             Modifier l'image
-         -->
-          <button type="submit" name="edit_pic" value="">modifier </button> 
-</form>
-        </div>
-       
-      </div>
-   
-
-
-  <hr style="height:2px;" class="my-0" />
-  <div class="card-body">
-    <form id="formAccountSettings" method="POST" onsubmit="return false">
-      <div class="row">
-                     <div class="col-md-4">
-                        <div class="profile-work">
-                           
-                            
-                            <p>Date de naissance</p>
-                            <b style="color :#ce1212;margin-left:10px;"> <?php echo $_SESSION['age'];?></b>
-                            <p>Genre</p>
-                            <b style="color :#ce1212;margin-left:10px;"> <?php echo $_SESSION['genre'];?></b>
-                            <p>Meilleurs livres  </p> 
-                            <b style="color :#ce1212;margin-left:10px;"><?php echo $_SESSION['livre'];?></b>
-                            
-                        </div>
+<div class="container">
+<div class="row clearfix">
+    <div class="col-lg-12">
+        <div class="card chat-app">
+            <div id="plist" class="people-list">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-search"></i></span>
                     </div>
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+                
+                <ul class="list-unstyled chat-list mt-2 mb-0">
+                    
+                   <li class="clearfix">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+                        <div class="about">
+                            <div class="name">Dean Henry</div>
+                            <div class="status"> <i class="fa fa-circle offline"></i> offline since Oct 28 </div>
+                        </div>
+                    </li>
 
-
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                       
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Nom</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <b style="color :#ce1212;margin-left:10px;"><?php echo $_SESSION['name'];?> <?php echo $_SESSION['prenom'];?></b>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <b style="color :#ce1212;margin-left:10px;"><?php echo $_SESSION['email'];?></b>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Télephone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <b style="color :#ce1212;margin-left:10px;"><?php echo $_SESSION['telephone'];?></b>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Profession</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <b style="color :#ce1212;margin-left:10px;"><?php echo $_SESSION['profession'];?></b>
-                                            </div>
-                                        </div>
-                                        <a href="editProfile.php?id=<?php echo $_SESSION['id'];?>">
-            <button style="margin-top:150px;margin-left:200px; background: var(--color-primary); border: 0; padding: 12px 40px;color: #fff;transition: 0.4s;border-radius: 50px;" name="btn-add" type="submit">
-              Modifier le compte
-            </button>
-           </a>
-
+                </ul>
+            </div>
+            <div class="chat">
+                <div class="chat-header clearfix">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                            </a>
+                            <div class="chat-about">
+                                <h6 class="m-b-0">Aiden Chavez</h6>
+                                <small>Last seen: 2 hours ago</small>
                             </div>
-                            
+                        </div>
+                        <div class="col-lg-6 hidden-sm text-right">
+                            <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
                         </div>
                     </div>
                 </div>
-            
-                        
-         </form>
-    </div>
-    </div>
-    </div>
-    <!-- /Account -->
-</div>
-</center>
-
-
-
-                  <center>
-                  <div style="width:1200px;background-color: white;border:none;" class="card">
-                    <h5 style="text-align:left;padding: 1.5rem 1.5rem;margin-bottom: 0;background-color: transparent;border-bottom: 0 solid #d9dee3;" class="card-header">Supprimer votre profile</h5>
-                    <div class="card-body">
-                      <div class="mb-3 col-12 mb-0">
-                        <div style="text-align:left;" class="alert alert-warning">
-                          <h6 style="background-color: #fff2d6;border-color: #ffe6b3;color: #ffab00;" class="alert-heading fw-bold mb-1">Vous etes sur?</h6>
-                          <p style="color: #ffab00;" class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
+                <div class="chat-history">
+                    <ul class="m-b-0">
+                        <li class="clearfix">
+                            <div class="message-data text-right">
+                                <span class="message-data-time">10:10 AM, Today</span>
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+                            </div>
+                            <div class="message other-message float-right"> Hi Aiden, how are you? How is the project coming along? </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="message-data">
+                                <span class="message-data-time">10:12 AM, Today</span>
+                            </div>
+                            <div class="message my-message">Are we meeting today?</div>                                    
+                        </li>                               
+                        <li class="clearfix">
+                            <div class="message-data">
+                                <span class="message-data-time">10:15 AM, Today</span>
+                            </div>
+                            <div class="message my-message">Project has been already finished and I have results to show you.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chat-message clearfix">
+                    <div class="input-group mb-0">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-send"></i></span>
                         </div>
-                      </div>
-                      <form id="formAccountDeactivation" >
-                        
-                      <a onclick="return confirmer()" href="../admin/functions/users/delete.php?id=<?php echo $_SESSION['id']; ?>"><button style="background-color: #ff3e1d;margin-right:980px;border:0;" type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button></a>
-                      </form>
+                        <input type="text" class="form-control" placeholder="Enter text here...">                                    
                     </div>
-                  </div>
-                  </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
-        
-<!-- ======= Footer ======= -->
-<footer style="margin-top:60px !important;background-color:black" id="footer" class="footer">
-<?php 
-  include "includes/footer.html" ?>
-  </footer><!-- End Footer -->
-  
-  <script>
-          function confirmer(){
-              return confirm("Voulez-vous vraiment désactivé votre compte ?");
-          }
-    </script>
-  </body>
-</html>
+<style>
+
+body{
+    background-color: #f4f7f6;
+    margin-top:20px;
+}
+.card {
+    background: #fff;
+    transition: .5s;
+    border: 0;
+    margin-bottom: 30px;
+    border-radius: .55rem;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+}
+.chat-app .people-list {
+    width: 280px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    z-index: 7
+}
+
+.chat-app .chat {
+    margin-left: 280px;
+    border-left: 1px solid #eaeaea
+}
+
+.people-list {
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s
+}
+
+.people-list .chat-list li {
+    padding: 10px 15px;
+    list-style: none;
+    border-radius: 3px
+}
+
+.people-list .chat-list li:hover {
+    background: #efefef;
+    cursor: pointer
+}
+
+.people-list .chat-list li.active {
+    background: #efefef
+}
+
+.people-list .chat-list li .name {
+    font-size: 15px
+}
+
+.people-list .chat-list img {
+    width: 45px;
+    border-radius: 50%
+}
+
+.people-list img {
+    float: left;
+    border-radius: 50%
+}
+
+.people-list .about {
+    float: left;
+    padding-left: 8px
+}
+
+.people-list .status {
+    color: #999;
+    font-size: 13px
+}
+
+.chat .chat-header {
+    padding: 15px 20px;
+    border-bottom: 2px solid #f4f7f6
+}
+
+.chat .chat-header img {
+    float: left;
+    border-radius: 40px;
+    width: 40px
+}
+
+.chat .chat-header .chat-about {
+    float: left;
+    padding-left: 10px
+}
+
+.chat .chat-history {
+    padding: 20px;
+    border-bottom: 2px solid #fff
+}
+
+.chat .chat-history ul {
+    padding: 0
+}
+
+.chat .chat-history ul li {
+    list-style: none;
+    margin-bottom: 30px
+}
+
+.chat .chat-history ul li:last-child {
+    margin-bottom: 0px
+}
+
+.chat .chat-history .message-data {
+    margin-bottom: 15px
+}
+
+.chat .chat-history .message-data img {
+    border-radius: 40px;
+    width: 40px
+}
+
+.chat .chat-history .message-data-time {
+    color: #434651;
+    padding-left: 6px
+}
+
+.chat .chat-history .message {
+    color: #444;
+    padding: 18px 20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 7px;
+    display: inline-block;
+    position: relative
+}
+
+.chat .chat-history .message:after {
+    bottom: 100%;
+    left: 7%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #fff;
+    border-width: 10px;
+    margin-left: -10px
+}
+
+.chat .chat-history .my-message {
+    background: #efefef
+}
+
+.chat .chat-history .my-message:after {
+    bottom: 100%;
+    left: 30px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #efefef;
+    border-width: 10px;
+    margin-left: -10px
+}
+
+.chat .chat-history .other-message {
+    background: #e8f1f3;
+    text-align: right
+}
+
+.chat .chat-history .other-message:after {
+    border-bottom-color: #e8f1f3;
+    left: 93%
+}
+
+.chat .chat-message {
+    padding: 20px
+}
+
+.online,
+.offline,
+.me {
+    margin-right: 2px;
+    font-size: 8px;
+    vertical-align: middle
+}
+
+.online {
+    color: #86c541
+}
+
+.offline {
+    color: #e47297
+}
+
+.me {
+    color: #1d8ecd
+}
+
+.float-right {
+    float: right
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0
+}
+
+@media only screen and (max-width: 767px) {
+    .chat-app .people-list {
+        height: 465px;
+        width: 100%;
+        overflow-x: auto;
+        background: #fff;
+        left: -400px;
+        display: none
+    }
+    .chat-app .people-list.open {
+        left: 0
+    }
+    .chat-app .chat {
+        margin: 0
+    }
+    .chat-app .chat .chat-header {
+        border-radius: 0.55rem 0.55rem 0 0
+    }
+    .chat-app .chat-history {
+        height: 300px;
+        overflow-x: auto
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .chat-app .chat-list {
+        height: 650px;
+        overflow-x: auto
+    }
+    .chat-app .chat-history {
+        height: 600px;
+        overflow-x: auto
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .chat-app .chat-list {
+        height: 480px;
+        overflow-x: auto
+    }
+    .chat-app .chat-history {
+        height: calc(100vh - 350px);
+        overflow-x: auto
+    }
+}
+</style>

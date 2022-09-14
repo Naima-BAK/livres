@@ -26,7 +26,7 @@ if(isset($_POST['btn_add'])){
 <body>
  <!-- ======= Header ======= -->
  <?php 
-//   include "includes/header.php" ?>
+ include "includes/header.php" ?>
   <!-- End Header -->
 
 
@@ -43,16 +43,17 @@ if(isset($_POST['btn_add'])){
                 <input class="input100" type="hidden" name="user_id" value="<?php echo $_SESSION['id'];  ?>" readonly>
 
                
-                
+                <br><br>
+
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">Adresse</span>
-                        <input class="input100" type="text" name="adresse" placeholder="Enterez votre adresse">
+                        <input class="input100" type="text" name="adresse" placeholder="Enterez votre adresse" require>
                     <span class="focus-input100"></span>
                 </div>
-<br>
+<br><br>
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">Ville</span>
-                        <select style="border:0;" class="input100"  name="ville" >
+                        <select style="border:0;" class="input100"  name="ville" require>
                             <option value="Agadir">Agadir</option>
                             <option value="Marrakech">Marrakech</option>
                             <option value="Rabat">Rabat</option>
@@ -60,14 +61,18 @@ if(isset($_POST['btn_add'])){
                         </select>
                     <span class="focus-input100"></span>
                 </div>
-                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                       <span class="label-input100">prix de livraison  </span>
-                       <input class="input100" type="text" name="total" value="40 DHS" readonly>
-                       <span class="focus-input100"></span>
+                <br><br>
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">Numero de télephone</span>
+                    <input class="input100" type="number" name="num" placeholder="Enterez votre numéro de télephone" require>
+
+                    <span class="focus-input100"></span>
                 </div>
-               
                 
+               
+                <br><br>
             <div class="container-login100-form-btn">
+                
                 <button style="" type="submit" name="btn_add" class="login100-form-btn">Ajouter</button>
             </div>
             </form>

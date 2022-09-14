@@ -1,5 +1,4 @@
 <?php
-  session_start();
   require ("../functions/functions.php");
  if(!isset($_SESSION['name_admin'])){
      

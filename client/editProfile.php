@@ -1,11 +1,11 @@
 
 <?php 
-session_start();
+require ("../admin/functions/functions.php");
 if(!isset($_SESSION['name'])){
      
   header("location:login.php");
 }
-require ("../admin/functions/functions.php");
+
 if(isset($_GET['id']) ){
 $user = getUtilisateurById();
 }
@@ -34,25 +34,20 @@ $user = getUtilisateurById();
   <!-- End Header -->
 
    
-
-
-  <div style="margin-top:150px" class="section-title">
+      
+    <div class="row">
+    <div style="margin-top:150px" class="section-title">
           <h2>Paramètres du compte</h2>
           <p>Profile</p>
        
     </div>
-      
-    <div class="row">
         <div class="col-md-12">
 
         <ul style="margin-left:76px;"  class="nav nav-pills flex-column flex-md-row mb-3">
                       <li class="nav-item">
                          <a style="background-color:#ce1212;" class="nav-link active" href="profile.php"><i class="bx bx-user me-1"></i> Profile</a>
                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="messages.php">
-                           <i class="bx bx-bell me-1"></i> Message</a>
-                       </li>
+                       
                         <li class="nav-item">
                               <a class="nav-link" href="groupes.php"
                              ><i class="bx bx-link-alt me-1"></i> Groupes</a
@@ -69,7 +64,7 @@ $user = getUtilisateurById();
                     <b style="background:#ffe0db;color:#ce1212;font-size:18px;" >Modifier le profile</b> 
                </h5>               <hr>
                <div style="" class="card-body">
-                    <form action="contrat.php" method="POST">
+                    <form action="editProfile.php" method="POST">
                          <input type="hidden" name="idUser" value="<?php echo $user['id']; ?>">
 
                          

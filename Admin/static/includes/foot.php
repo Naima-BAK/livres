@@ -1,3 +1,14 @@
+
+
+
+<?php
+  
+ 
+
+
+?>
+
+
 <script src="js/app.js"></script>
 
 <script>
@@ -70,19 +81,20 @@
 		});
 	});
 </script>
+<input type="hidden" name="femme" value="">
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
 		// Pie chart
+		
 		new Chart(document.getElementById("chartjs-dashboard-pie"), {
 			type: "pie",
 			data: {
-				labels: ["Chrome", "Firefox", "IE"],
+				labels: ["Femmes", "Hommes"],
 				datasets: [{
-					data: [4306, 3801, 1689],
+					data: [6, 5],
 					backgroundColor: [
 						window.theme.primary,
-						window.theme.warning,
-						window.theme.danger
+						window.theme.warning
 					],
 					borderWidth: 5
 				}]
@@ -98,6 +110,7 @@
 		});
 	});
 </script>
+
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
 		// Bar chart
@@ -142,6 +155,8 @@
 		});
 	});
 </script>
+
+
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
 		var markers = [{

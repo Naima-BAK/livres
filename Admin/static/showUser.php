@@ -1,6 +1,5 @@
 <?php
    
-   session_start();
    require ("../functions/functions.php");
   if(!isset($_SESSION['name_admin'])){
       
@@ -48,7 +47,7 @@
 
 
             <div class="card mb-4" id="btn-dropdown-demo" >
-                <h5 class="card-header" style="background-color: #fff2d6 !important;  color:  #ffab00 !important;font-size:large;">Détails de la catégorie :</h5>
+                <h5 class="card-header" style="background-color: #fff2d6 !important;  color:  #ffab00 !important;font-size:large;">Détails d'utilisateur :</h5>
 
                 <!-- Basic Dropdowns -->
                 <div class="card-body">

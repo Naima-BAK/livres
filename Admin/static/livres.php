@@ -2,14 +2,13 @@
 <?php
   
     
-    session_start();
+   require ("../functions/functions.php"); 
     if(!isset($_SESSION['name_admin'])){
         
         header("location:../client/login.php");
     }
    
     // $color = color();
-   require ("../functions/functions.php"); 
    $categories = getAllCategories();
           if(!empty($_POST)){
            
@@ -304,6 +303,7 @@
                           placeholder=" Entrez le titre de livre"
                           id="titre"
                           name="titre"
+                          required
                         />
                       </div>
                       </div>
@@ -332,6 +332,7 @@
                           placeholder=" Entrez le nom de l'auteur"
                           id="auteur"
                           name="auteur"
+                          required
                         />
                       </div>
                       </div>
@@ -347,6 +348,7 @@
                           placeholder=" Entrez le prix"
                           id="prix"
                           name="prix"
+                          required
                         />
                       </div>
                       </div>
@@ -363,13 +365,14 @@
                           placeholder=" Entrez la quantite"
                           id="quantite"
                           name="quantite"
+                          required
                         />
                       </div>
                       </div>
       <!--------------------image---------------------------- -->
        
                     <div  class="input-group">
-                        <input  type="file" class="form-control" id="image" name="image" />
+                        <input  type="file" class="form-control" id="image" name="image" required/>
                         <label style="background-color: #d7f5fc !important;
     color: #03c3ec !important;" class="input-group-text" for="image">Télecharger</label>
                       </div><br>
@@ -385,6 +388,7 @@
                           placeholder=" Entrez le nombre de pages"
                           id="nbr_pages"
                           name="nbr_pages"
+                          required
                         />
                       </div>
                       </div>
@@ -400,6 +404,7 @@
                           placeholder=" Entrez la date de publiation"
                           id="date_pub"
                           name="date_pub"
+                          
                         />
                       </div>
                       </div>
@@ -416,6 +421,7 @@
                           placeholder=" Entrez la description"
                           id="description"
                           name="description"
+                          required
                         />
                       </div>
                       </div>

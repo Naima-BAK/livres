@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+if(!isset($_SESSION['name'])){
+     
+  header("location:../login.php");
+}
 
 // fonction pour établir la connection avec la base de données
 function DBconnexion(){

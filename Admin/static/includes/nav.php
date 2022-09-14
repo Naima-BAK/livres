@@ -6,8 +6,8 @@
     }
     ?>
 
-<nav id="sidebar" class="sidebar js-sidebar">
-    <div class="sidebar-content js-simplebar">
+<nav  id="sidebar" class="sidebar js-sidebar">
+    <div  class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="index.html">
           <center><b style="font-size:30px;">  Eco_livres</b></center>
         </a>
@@ -119,20 +119,7 @@
                </a>
             </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="charts-chartjs.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ff3e1d" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16">
-                    <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z"/>
-                </svg>
-                 <span class="align-middle">Charts</span>
-    </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="maps-google.html">
-      <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
-    </a>
-            </li>
+           
         </ul>
 <br>
 <br>

@@ -28,8 +28,8 @@ sty
     <section style="margin-top:50px;background-color:white" id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
       <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>What Are They <span style="color: #ec2727;"><b>Saying About Us</b></span></p>
+          <h2>Témoignages
+</h2>
         </div>
         
           

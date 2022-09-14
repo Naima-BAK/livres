@@ -57,7 +57,7 @@ if(isset($_POST['btn_comment'])){
                 <h3 style="color: #71dd37 ;">Informatio de livre </h3>
                 <ul>
                   <li><strong>Titre</strong>: '.$livre['titre'].'</li>
-                  <li><strong>Auteur</strong>: '.$livre['auteur'].' <a href="#">www.example.com</a></li>
+                  <li><strong>Auteur</strong>: '.$livre['auteur'].' </li>
                   <li><strong>Categorie</strong>: ';
                   foreach($categories as $index =>$c){
                        if($livre['categorie_id'] == $c['id']){
@@ -66,7 +66,7 @@ if(isset($_POST['btn_comment'])){
                   }
                   print'
                   </li>
-                  <li><strong>Titre</strong>: '.$livre['prix'].' DHS</li>
+                  <li><strong>Prix</strong>: '.$livre['prix'].' DHS</li>
                   <li><strong>date de publication</strong>:'.$livre['date_pub'].'</li>
                   <li><strong>nombre de pages</strong>:'.$livre['nbr_pages'].'</li>
                 </ul>

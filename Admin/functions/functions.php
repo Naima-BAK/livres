@@ -186,11 +186,8 @@ function editLivre(){
   $date_pub = $_POST['date_pub'];
   $nbr_pages = $_POST['nbr_pages'];
   $prix = $_POST['prix'];
-
-
-
    //creation de la requet :
-  $requet = "update livres set  id='$id', categorie_id='$idd', titre='$nom', prix='$prix', nbr_pages='$nbr_pages', date_pub='$date_pub', description='$desc' where id='$id'";
+  $requet = "update livres set  id='$id', categorie_id='$idd', titre='$nom',auteur='$auteur', prix='$prix', nbr_pages='$nbr_pages', date_pub='$date_pub', description='$desc' where id='$id'";
   $result = $conn->query($requet);
 
      if($result){
@@ -302,6 +299,15 @@ function getAllLivresCuisine(){
   $livres = $result->fetchAll();
   return $livres;
 }
+// afficher les livres de categorie Marketing :
+function getAllLivresMarketing(){      
+  $conn = DBconnexion();
+
+  $requet = "SELECT * from livres  where categorie_id = 4";
+  $result = $conn->query($requet);
+  $livres = $result->fetchAll();
+  return $livres;
+}
 // afficher les livres de categorie langues :
 function getAllLivresLangues(){      
   $conn = DBconnexion();
@@ -346,7 +352,47 @@ function searchLivrehistoirePrixEleve(){
   $result = $conn->query($requet);
   $livres = $result->fetchAll();
   return $livres;
+
 }
+
+// -----------------------------
+
+// livres Marketing :
+
+function searchLivreMarketingName($mot){
+  $conn = DBconnexion();
+
+  $requet = "SELECT * FROM livres WHERE titre LIKE '%$mot%' and categorie_id = 4";
+  $result = $conn->query($requet);
+  $livres = $result->fetchAll();
+  return $livres;
+}
+//chercher le livre le livre par auteur:
+function searchLivreMarketingAuteur($mot){
+  $conn = DBconnexion();
+
+  $requet = "SELECT * FROM livres WHERE auteur LIKE '%$mot%' and categorie_id = 4";
+  $result = $conn->query($requet);
+  $livres = $result->fetchAll();
+  return $livres;
+}
+//chercher le livre le livre par prix:
+function searchLivreMarketingPrixBas(){
+  $conn = DBconnexion();
+
+  $requet = "SELECT * FROM livres WHERE prix <= 50 and categorie_id = 4";
+  $result = $conn->query($requet);
+  $livres = $result->fetchAll();
+  return $livres;
+}
+function searchLivreMarketingPrixEleve(){
+  $conn = DBconnexion();
+
+  $requet = "SELECT * FROM livres WHERE prix > 50 and categorie_id = 4";
+  $result = $conn->query($requet);
+  $livres = $result->fetchAll();
+  return $livres;}
+
 // livres cuisine :
 
 function searchLivrecuisineName($mot){
@@ -596,6 +642,54 @@ function editUser(){
          echo "Impossible de modifier votre compte";
     }
 }
+// edit mot de passe
+function editPassword(){ 
+
+  
+$conn = DBconnexion();
+$pass =md5($_POST['password']);
+$npass=md5($_POST['newpassword']);
+$cnpass=md5($_POST['cnewpassword']);
+
+$id = $_SESSION['id'];
+
+$requet = "SELECT password FROM utilisateur  where id='$id'";
+$result = $conn->query($requet);
+$user= $result->fetch();
+
+if($pass == $user['password']){
+  if($npass == $cnpass){
+       $requet = "UPDATE utilisateur SET password='$npass' where id='$id'";
+       $result = $conn->query($requet);
+       if($result){
+        // notification :
+        $date=$date = date('d-m-y h:i:s');
+        $not = "votre passwor est modifier le $date";
+        $requet = "INSERT INTO  notifyClient (notification,user_id) VALUES  ('$not','$id')";
+        $result = $conn->query($requet);
+
+         header('location:index.php?edit=ok');
+        }
+    }else{
+      $date=$date = date('d-m-y h:i:s');
+      $not = "vous avez essayé de modifier votre mot de passe le $date";
+      $requet = "INSERT INTO  notifyClient (notification,user_id) VALUES  ('$not','$id')";
+      $result = $conn->query($requet);
+      header('location:index.php?err1=ok');
+    }
+  }else{
+    $date=$date = date('d-m-y h:i:s');
+      $not = "vous avez essayé de modifier votre mot de passe le $date";
+      $requet = "INSERT INTO  notifyClient (notification,user_id) VALUES  ('$not','$id')";
+      $result = $conn->query($requet);
+    header('location:index.php?err2=ok');
+  }
+}
+
+
+
+  
+
 //valider l'utilisateur :
 function ValiderUser(){
   $conn = DBconnexion();
@@ -603,6 +697,10 @@ function ValiderUser(){
   $requet = "UPDATE utilisateur set statut=1 where id='$id'";
   $result = $conn->query($requet);
   if($result){
+    $not = "vous etes membre dans les groupes";
+    $requet = "INSERT INTO  notifyClient (notification,user_id) VALUES  ('$not','$id')";
+    $result = $conn->query($requet);
+
     header('location:users.php?valide=ok');
    }
 }
@@ -649,24 +747,33 @@ function    editImgUser(){
   
   $conn = DBconnexion();
   $id= $_SESSION['id'];
-  $target_dir = "C:/xampp/htdocs/myProject/admin/static/img/imgUsers/";
-  $target_file = $target_dir . basename($_FILES["image"]["name"]);
-  if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) 
-   {
-      $image = $_FILES["image"]["name"];
-      } else
-      {
-       echo "Sorry, there was an error uploading your file.";
-    }
+   
+      $image = $_POST["image"];
+  
 
   $requet = "UPDATE utilisateur SET image='$image' where id='$id'";
   $result = $conn->query($requet);
 
  
     }
+//get femmmes
+    function getAllFemmes(){      
+      $conn = DBconnexion();
+    
+      $requet = "SELECT count(*) as nbr from utilisateur where genre='Femme'";
+      $result = $conn->query($requet);
+      $femmes = $result->fetchAll();
+      return $femmes;
+    }
+//get hommes
+function getAllHommes(){      
+  $conn = DBconnexion();
 
-
-
+  $requet = "SELECT count(*) as nbr from utilisateur where genre='Homme'";
+  $result = $conn->query($requet);
+  $hommes = $result->fetchAll();
+  return $hommes;
+}
 // ---------------------------------------
 // ------Paniers-------------------------------
 // -------------------------------------------------------------------
@@ -738,6 +845,16 @@ function getAllLivraisons(){
   $conn = DBconnexion();
 
   $requet = "SELECT l.id, l.date_creation, user.nom,l.user_id, l.adresse, l.ville,l.etat from livraison l,utilisateur user where user.id=l.user_id";
+  $result = $conn->query($requet);
+  $livraisons = $result->fetchAll();
+  return $livraisons;
+}
+// afficher :
+function getLivraisonsSession(){
+ 
+  $conn = DBconnexion();
+   $id = $_SESSION['id'];
+  $requet = "SELECT * from livraison  where user_id='$id'";
   $result = $conn->query($requet);
   $livraisons = $result->fetchAll();
   return $livraisons;
@@ -943,6 +1060,7 @@ function  ajoutContact(){
     return $contact;
    
   }  
+
 function ajoutmessage(){
   $conn = DBconnexion();
 $message= $_POST['message'];
@@ -951,7 +1069,7 @@ $user_id = $_SESSION['id'];
 $requet = "INSERT INTO groupes(user_id, message) VALUES  ('$user_id','$message')";
 $result = $conn->query($requet);
 if($requet){
- header('location:groupe1.php');}
+ header('location:../client/messages.php');}
 
 }
 function ajoutmessage2(){
@@ -975,7 +1093,12 @@ function ajoutnotif(){
 $requet = "INSERT INTO notifyAdmin(notification) VALUES  ('$notif')";
 $result = $conn->query($requet);
 if($requet){
- header('location:../client/att_acceptation.php');}
+  $notif="Vous avez demander de rejoindre les groupes";
+
+  //creation de panier
+  $requet = "INSERT INTO notifyClient(notification,user_id) VALUES  ('$notif','$id')";
+  $result = $conn->query($requet);
+ header('location:../client/index.php');}
 
 }
 // 
@@ -988,12 +1111,101 @@ function getAllNotifi(){
   $notifications = $result->fetchAll();
   return $notifications;
 }
+function getAllNotifiClient(){  
+
+  $conn = DBconnexion();
+  $id = $_SESSION['id'];
+  $requet = "SELECT  DATE_FORMAT(date, '%d/%m/%Y') as date1,notification,date from notifyClient where user_id='$id'";
+  $result = $conn->query($requet);
+  $notifications = $result->fetchAll();
+  return $notifications;
+}
 
 
 
+function  contactAdmin(){
 
+  $conn = DBconnexion();
+  $user_Id = $_SESSION['id'];
+  $message = $_POST['message'];
+  
+  
+  $requet = "INSERT INTO messages(message,user_id) values ('$message','$user_Id') ";
+  $result = $conn->query($requet);
+
+  if($requet){
+    header('location:../client/index.php');}
+  
+}
+
+
+      // Settings
+      // ajouter :
+function    editLogo(){
+  
+  $conn = DBconnexion();
+  $id = 1;
+  $image = $_POST["image"];
+  $requet = "UPDATE logo SET image='$image' where id='$id'";
+  $result = $conn->query($requet);
+}
+    function getlogo(){      
+      $conn = DBconnexion();
+    
+      $requet = "SELECT *  from logo ";
+      $result = $conn->query($requet);
+      $logo = $result->fetchAll();
+      return $logo;
+    }
+      //  navbar colors
+      function getNavColor(){      
+        $conn = DBconnexion();
       
-       
+        $requet = "SELECT *  from navColors ";
+        $result = $conn->query($requet);
+        $navColor = $result->fetchAll();
+        return $navColor;
+      }
+    function    editNavOrange(){
+  
+      $conn = DBconnexion();
+      $id = 1;
+      $color = $_POST["color"];
+      $requet = "UPDATE navColors SET background='$color', color='white' where id='$id'";
+      $result = $conn->query($requet);
+    }
+    function    editNavWhite(){
+  
+      $conn = DBconnexion();
+      $id = 1;
+      $color = $_POST["color"];
+      $requet = "UPDATE navColors SET background='$color', color='black' where id='$id'";
+      $result = $conn->query($requet);
+    }
+    function    editNavBlue(){
+  
+      $conn = DBconnexion();
+      $id = 1;
+      $color = $_POST["color"];
+      $requet = "UPDATE navColors SET background='$color', color='black' where id='$id'";
+      $result = $conn->query($requet);
+    }
+    function    editNavMove(){
+  
+      $conn = DBconnexion();
+      $id = 1;
+      $color = $_POST["color"];
+      $requet = "UPDATE navColors SET background='$color', color='white' where id='$id'";
+      $result = $conn->query($requet);
+    }
+    function    editNavGreen(){
+  
+      $conn = DBconnexion();
+      $id = 1;
+      $color = $_POST["color"];
+      $requet = "UPDATE navColors SET background='$color', color='white' where id='$id'";
+      $result = $conn->query($requet);
+    }
       // function  color()
       // {
       //   $conn = DBconnexion();

@@ -1,5 +1,4 @@
 <?php
-     session_start();
      require ("../functions/functions.php");
     if(!isset($_SESSION['name_admin'])){
         
@@ -76,7 +75,7 @@
                <hr class="m-0" />
                <div class="card-body">
                <b>L'image :</b> &emsp;
-                      <img src="img/imgLivres/<?php echo $livre['image'];?>" alt="">
+                      <img style="width:80px;height:120px" src="img/imgLivres/<?php echo $livre['image'];?>" alt="">
                </div>
                
                <hr class="m-0" />

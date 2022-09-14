@@ -1,7 +1,6 @@
 
 <?php 
-session_start();
-require "includes/functions.php";
+require "../admin/functions/functions.php";
    
 $total=0;
 if(isset($_SESSION['panier']))
@@ -76,8 +75,8 @@ if(isset($_SESSION['panier']))
                            
                             print'<tr>
                                            <td>'.($index+1).' </td>
-                                          <td>'.$commande[4].' DHS</td>
-                                          <td>'.$commande[0].' DHS</td>
+                                          <td>'.$commande[4].' </td>
+                                          <td>'.$commande[0].' </td>
                                            <td>'.$commande[1].' DHS</td>
                                            <td><a href="actions/supprimerPanier.php?id='.$index.'"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: #ffab00;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.207 12.793-1.414 1.414L12 13.414l-2.793 2.793-1.414-1.414L10.586 12 7.793 9.207l1.414-1.414L12 10.586l2.793-2.793 1.414 1.414L13.414 12l2.793 2.793z"></path></svg></a></td></tr> ';
                            }?>

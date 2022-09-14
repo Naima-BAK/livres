@@ -2,7 +2,8 @@
 
 
 <?php
-session_start();
+require ("../admin/functions/functions.php");
+
 $conn = mysqli_connect('localhost','root','','book');
 
 $error_email= '';
@@ -60,6 +61,7 @@ if(isset($_POST['btn-login'])){
             $_SESSION['livre'] = $row['livre'];
             $_SESSION['genre'] = $row['genre'];
             $_SESSION['statut'] = $row['statut'];
+            $_SESSION['email'] = $row['email'];
 
             
             
@@ -132,74 +134,23 @@ if(isset($_POST['btn-login'])){
         include "includes/head.html" ?>
 </head>
 
-<body style="background-image:  url('https://t3.ftcdn.net/jpg/02/92/60/86/240_F_292608623_FVzbEvQLqAdYZIL4yOXkzRYVS1191ls6.jpg');
-        ">
+<body style="background-image: url('assets/img/login/4.png');">
 
 
 
-
-
-<div  style="width:100%;" id="header" class="header fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
- 
-
-      <div style="width:15%;">
-         <a href="index.php" >
-          <h1><img width="120" height="50" src="logo.png" alt=""><span></span></h1>
-        </a>
-      </div>
-      <div style="width:85%;">
-      <nav id="navbar" style="margin-right:50px" class="navbar">
-        <ul>
-          <li ><a href="index.php">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="services.php">services</a></li>
-          <li><a href="categories.php">Catégories</a></li>
-          <li><a href="livres.php">Livres</a></li>
-          <li><a href="avis.php">Témognages</a></li>
-          <li><a href="events.php">Events</a></li>
-          <li><a href="contact.php">Contact</a></li>
-          <?php  
-          if(isset($_SESSION['name'])){
-            
- print '
-            <li class="dropdown"><a  href="#"><span><img width="40px" height="40px" src="utilisateur.png">'.$_SESSION['name'].'</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              
-              <li><a href="profile.php">profile</a></li>
-             
-              <li><a href="logout.php">logout</a></li>
-              
-            </ul>
-          </li>';
-        }
-          else{
-          print '
-          <li class="dropdown"><a class="btn-book-a-table" href="#"><span>Connexion</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              
-              <li><a href="login.php">Se connecter</a></li>
-              <li><a href="register.php">Créer un compte</a></li>
-            </ul>
-          </li>';}?>
-         
-        </ul>
-      </nav><!-- .navbar -->
-    </div>
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
    
-  </div>
-</div>
+  <!-- ======= Header ======= -->
+  <?php 
+  include "includes/header.php" ?>
+  <!-- End Header -->
 
 
 <main class="py-4">
 
 <div class="container" style="margin-top:120px;">
 
-    <div style="background-color:black;width:500px;margin-right:0px;" class="body d-md-flex align-items-center justify-content-between">
+    <div style="background-color:black;width:500px;margin-right:900px;" class="body d-md-flex align-items-center justify-content-between">
 
        
 

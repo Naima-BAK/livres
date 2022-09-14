@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require ("../functions/functions.php");
    if(!isset($_SESSION['name_admin'])){
        
@@ -57,7 +56,7 @@ $livraisons = getAllLivraisons();
                    <div class="container-xxl flex-grow-1 container-p-y">
                        <div class="card">
                           <div class="card-body">
-                             <h5  class="card-title"><b style="background-color: #ffe0db !important;margin-left:20px;  color:  #ff3e1d !important;font-size:large;"> Modifier la Catégorie :</b></h5>
+                             <h5  class="card-title"><b style="background-color: #ffe0db !important;margin-left:20px;  color:  #ff3e1d !important;font-size:large;"> Modifier l'etat de la livrasion :</b></h5>
                         
                
                     <div class="card-body">

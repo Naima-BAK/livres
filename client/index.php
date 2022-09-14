@@ -1,5 +1,8 @@
 
-<?php  session_start(); ?>
+<?php  
+require ("../admin/functions/functions.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +18,11 @@
   <?php 
   include "includes/header.php" ?>
   <!-- End Header -->
-
+  <?php>
+              if (isset($_GET['edit']) && $_GET['edit'] == "ok"){
+        print '<script"> alert("password est modifier avec succès");
+        </script>';
+        } ?>
 
   <div style="height: 50px important;">
   <ul  style="height: 100px important;" class="slideshow">
@@ -33,15 +40,15 @@
           <div class="card-body">
                       <div class="demo-inline-spacing">
                         
-                        <button type="button" class="btn rounded-pill btn-info">Plus d'informations</button>
-                      </div>
+                        <a href="about.php"><button type="button" class="btn rounded-pill btn-info">Plus d'informations</button>
+                     </a> </div>
                     </div></h3> <span>Slide Two</span> </li>
         <li><h3>Eco_Livres <br> 
           <div class="card-body">
                       <div class="demo-inline-spacing">
                         
-                        <button type="button" class="btn rounded-pill btn-info">Plus d'informations</button>
-                      </div>
+                      <a href="about.php"> <button type="button" class="btn rounded-pill btn-info">Plus d'informations</button>
+                      </a> </div>
                     </div></h3> <span>Slide Three</span> </li>
         <li><h3>Eco_Livres <br> 
           <div class="card-body">

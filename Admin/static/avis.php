@@ -2,12 +2,16 @@
 <?php
   
   
-  session_start();
   require ("../functions/functions.php");
  if(!isset($_SESSION['name_admin'])){
      
      header("location:../client/login.php");
  }
+ 
+
+
+
+
   $avis = getAllAvis();
   // $color = color();
  

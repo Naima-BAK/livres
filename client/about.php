@@ -1,7 +1,8 @@
-<?php session_start(); ?>
+<?php 
+
+require ("../admin/functions/functions.php"); ?>
 
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
 <link rel="stylesheet" href="assets/css/service.css">
@@ -23,8 +24,8 @@ sty
       <div class="container" >
 
         <div class="section-title">
-          <h2>About Us</h2>
-          <p>Learn More <span>About Us</span></p>
+          <h2>A propos de nous</h2>
+          <p>Plus d'informations  <span>sur nous.</span></p>
         </div>
 
     <div  style="display:flex;">
@@ -33,16 +34,19 @@ sty
             <img style="width:550px;height:400px;" src="assets/img/img1.jpg" alt="">
         </div>
 
-        <div style="margin-left:20px;" >
-           <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p> 
-           <p>Omnis sed voluptate laborum tenetur libero nam ipsa consequatur</p> 
-           <p> voluptatum totam quis blanditiis nemo,</p> 
-           <p> atque perferendis! Corrupti vel nobis ut. Dolorum, distinctio.</p> 
+        <div style="margin-left:20px;margin-top:20px;" >
+           <p>Sur Eco_livres est la plateforme du groupe Editis, au service des lecteurs,</p> 
+           <p> à cultiver leur plaisir de la lecture.</p> 
+           
            <br>
-           <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p> 
-           <p>Omnis sed voluptate laborum tenetur libero nam ipsa consequatur</p> 
-           <p> voluptatum totam quis blanditiis nemo,</p> 
-           <p> atque perferendis! Corrupti vel nobis ut. Dolorum, distinctio.</p> 
+           <p>Sur Eco_livres, vous retrouverez tous les romans,les récits,</p> 
+           <p>les documents, les essais et les ouvrages pratiques que vous aimez</p> 
+           <p> mais aussi toutes les informations sur vos auteurs</p> 
+           <p>favoris, leur actu, les nouveautés...</p> 
+           <br>
+          <p> Partageons ensemble notre amour des livres,</p> 
+          <p> nos coups de coeur et notre passion de créer! </p>
+
         </div>
     </div>
 
@@ -69,22 +73,22 @@ sty
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
+              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Catégories</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
               <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
+              <p>Livres</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
               <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Workers</p>
+              <p>Ouvriers</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -101,9 +105,9 @@ sty
       <div class="container" data-aos="fade-up">
 
         
-        <div class="section-title">
+        <div class="section-title" >
           
-          <p> Check <span style="color: #ec2727;"><b>Our Gallery</b></span></p>
+          <p> Découvrez notre <span style="color: #ec2727;"><b>galerie</b></span></p>
         </div>
 
         <div class="gallery-slider swiper">

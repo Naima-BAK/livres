@@ -40,7 +40,7 @@ $livres =  getAllLivres();
 			<main class="content">
 			<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
+					<!-- <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1> -->
 
 					<div class="row">
 						<div class="col-xl-6 col-xxl-5 d-flex">
@@ -58,7 +58,7 @@ $livres =  getAllLivres();
 
 													<div class="col-auto">
 														<div style="background-color:white;" class="stat text-primary">
-															<i class="align-middle" data-feather="truck"></i>
+														<i class="align-middle" data-feather="dollar-sign"></i>
 														</div>
 													</div>
 												</div>
@@ -113,7 +113,10 @@ $livres =  getAllLivres();
 
 													<div class="col-auto">
 														<div style="background-color:white;" class="stat text-primary">
-															<i class="align-middle" data-feather="dollar-sign"></i>
+														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
+  <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+  <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"/>
+</svg>
 														</div>
 													</div>
 												</div>
@@ -137,8 +140,8 @@ $livres =  getAllLivres();
 
 													<div class="col-auto">
 														<div style="background-color:white;" class="stat text-primary">
-															<i class="align-middle" data-feather="shopping-cart"></i>
-														</div>
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+													</div>
 													</div>
 												</div>
 												<h1 class="mt-1 mb-3">
@@ -163,15 +166,8 @@ $livres =  getAllLivres();
 						<!-- ---------------------------------------------------- -->
 						<div class="col-xl-6 col-xxl-7">
 							<div class="card flex-fill w-100">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Recent Movement</h5>
-								</div>
-								<div class="card-body py-3">
-									<div class="chart chart-sm">
-										<canvas id="chartjs-dashboard-line"></canvas>
-									</div>
-								</div>
+								
+								<img src="img/imgAdmin/admin2.png" alt="">
 							</div>
 						</div>
 					</div>
@@ -181,7 +177,7 @@ $livres =  getAllLivres();
 							<div class="card flex-fill w-100">
 								<div class="card-header">
 
-									<h5 class="card-title mb-0">Browser Usage</h5>
+									<h5 class="card-title mb-0">Percentage des utilisateurs selon le genre</h5>
 								</div>
 								<div class="card-body d-flex">
 									<div class="align-self-center w-100">
@@ -194,17 +190,14 @@ $livres =  getAllLivres();
 										<table class="table mb-0">
 											<tbody>
 												<tr>
-													<td>Chrome</td>
-													<td class="text-end">4306</td>
+													<td style="color:blue;">Femmes</td>
+													<td class="text-end">5</td>
 												</tr>
 												<tr>
-													<td>Firefox</td>
-													<td class="text-end">3801</td>
+													<td  style="color:orange;">Hommes</td>
+													<td class="text-end">4</td>
 												</tr>
-												<tr>
-													<td>IE</td>
-													<td class="text-end">1689</td>
-												</tr>
+												
 											</tbody>
 										</table>
 									</div>
@@ -212,22 +205,12 @@ $livres =  getAllLivres();
 							</div>
 						</div>
 
-						<!-- <div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Real-Time</h5>
-								</div>
-								<div class="card-body px-4">
-									<div id="world_map" style="height:350px;"></div>
-								</div>
-							</div>
-						</div> -->
+						
 						<div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
 							<div class="card flex-fill">
 								<div class="card-header">
 
-									<h5 class="card-title mb-0">Calendar</h5>
+									<h5 class="card-title mb-0">calendrier</h5>
 								</div>
 								<div class="card-body d-flex">
 									<div class="align-self-center w-100">
@@ -247,6 +230,7 @@ $livres =  getAllLivres();
 							<img src="img/imgAdmin/admin1.png" alt="">
 							</div>
 						</div>
+						<!--  -->
 						<div class="col-12 col-lg-4 col-xxl-3 d-flex">
 							<div class="card flex-fill w-100">
 								<div class="card-header">
